@@ -8,10 +8,26 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="main">
     <title></title>
 </head>
 
 <body>
-    ${dude.Contact.find(new dude.Contact(firstName:"Pat"))}
+<table class="table" id="contacts-table">
+    <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+        </tr>
+    </thead>
+    <tbody>
+        <g:each in="${contacts}" var="contact">
+        <tr>
+            <td>${contact.firstName}</td>
+            <td>${contact.lastName}</td>
+        </tr>
+        </g:each>
+    </tbody>
+</table>
 </body>
 </html>

@@ -2,5 +2,8 @@ package dude
 
 class ApplicationController {
 
-    def index() { }
+    def index() {
+        def contacts = Contact.all
+        render(view: "index", model: [contacts: contacts])
+    }
 }

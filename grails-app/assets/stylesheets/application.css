@@ -10,4 +10,14 @@
 *= require main
 *= require mobile
 *= require_self
+*= require bootstrap
+*= require custom-bootstrap
 */
+
+#contacts-table {
+    width:900px;
+    margin:0 auto;
+}
+.container {
+    padding-bottom:20px;
+}
