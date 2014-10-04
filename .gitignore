@@ -33,7 +33,6 @@
 /.idea/*
 .classpath
 .project
-application.properties
 dude-grailsPlugin.iml
 dude.iml
 /dude-grailsPlugins.iml
