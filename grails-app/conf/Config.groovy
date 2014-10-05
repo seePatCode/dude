@@ -11,8 +11,6 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.assets.plugin."twitter-bootstrap".excludes = ["**/*.less"]
-grails.assets.plugin."twitter-bootstrap".includes = ["bootstrap.less"]
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
