@@ -7,10 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"{
-            controller = "application"
-            action = "index"
-        }
+        "/"(controller:"application")
         "500"(view:'/error')
 	}
 }
