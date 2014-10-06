@@ -30,9 +30,11 @@ b. Set up your JAVA_HOME path: http://docs.oracle.com/cd/E19182-01/820-7851/inst
 c. Open a command prompt and make sure 'javac -version' spits back 1.8
 
 **2.  Intellij Ultimate - (It has cleaner grails integration than community. Just do the 30 day trial)**
+
 a. Get the ultimate! http://www.jetbrains.com/idea/download/
 
 **3.  Grails**
+
 a. Go to https://grails.org/download and click the download link.
 
 b. Click the "Installation" button to follow the directions on setting up your environment (Environment Variables an what not...).
