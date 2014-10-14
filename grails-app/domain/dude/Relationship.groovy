@@ -1,9 +1,9 @@
 package dude
 
 class Relationship {
-    static belongsTo = DudeUser
+    static belongsTo = ShiroUser
     static hasMany = [
-            users: DudeUser
+            users: ShiroUser
     ]
     static constraints = {
     }

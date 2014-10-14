@@ -5,7 +5,7 @@ class Contact {
     String lastName
     String phoneNumber
 
-    static belongsTo = [user: DudeUser]
+    static belongsTo = [user: ShiroUser]
     static constraints = {
         firstName blank: false, nullable: false
         lastName blank: false, nullable: false
