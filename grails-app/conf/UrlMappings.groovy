@@ -8,6 +8,8 @@ class UrlMappings {
         }
 
         "/"(controller:"application")
+        "/viewcontact"(controller:"application",action:"viewcontact")
+        "/logout"(controller:"auth", action: 'signOut')
         "500"(view:'/error')
 	}
 }
