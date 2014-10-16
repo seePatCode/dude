@@ -40,6 +40,7 @@
                 <th>First</th>
                 <th>Last</th>
                 <th>Yo Digits</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,11 @@
                 <td>${contact.firstName}</td>
                 <td>${contact.lastName}</td>
                 <td>${contact.phoneNumber}</td>
+                <td>
+                    <a href="<g:createLink action="deletecontact" params="[contactid:contact.id]" />" class="btn btn-default btn-sm removeRed" >
+                        <span class="glyphicon glyphicon-remove"></span> Remove Contact
+                    </a>
+                </td>
             </tr>
             </g:each>
         </tbody>

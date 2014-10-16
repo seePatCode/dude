@@ -1,5 +1,5 @@
 
-<g:set var="formaction" value="${contact?"updatecontact":"createcontact"}" />
+<g:set var="formaction" value="${contact?"updatecontact":"savenewcontact"}" />
 <g:form name="editContactForm" action="${formaction}" class="form-horizontal" role="form">
     <input type="hidden" name="id" value="${contact?.id}"/>
     <div class="form-group">
