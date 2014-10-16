@@ -13,10 +13,8 @@
 </head>
 
 <body>
-<div class="right">
-    <a href="<g:createLink action="editcontact" params="[contactid:contact.id]" />">Edit Contact</a>
+<div style="max-width:600px;">
+    <g:render template ="contactformpartial" />
 </div>
-<h1>${contact.firstName} ${contact.lastName}</h1>
-<h2>${contact.phoneNumber}</h2>
 </body>
 </html>

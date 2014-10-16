@@ -18,7 +18,7 @@
 	<body>
         <div class="container">
             <div class="page-header">
-                <h1><a href="/dude">Dude!</a> <small>the simple contacts management app thingy</small></h1>
+                <h1><a href="<g:createLink action="index" />">Dude!</a> <small>the simple contacts management app thingy</small></h1>
             </div>
 		    <g:layoutBody/>
         </div>

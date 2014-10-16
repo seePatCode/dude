@@ -14,9 +14,10 @@
 
 <body>
 <div class="right">
-    <a href="<g:createLink action="editcontact" params="[contactid:contact.id]" />">Edit Contact</a>
+    <a href="<g:createLink action="viewcontact" params="[contactid:contact.id]" />">Back to View Contact</a>
 </div>
-<h1>${contact.firstName} ${contact.lastName}</h1>
-<h2>${contact.phoneNumber}</h2>
+<div style="max-width:600px;">
+    <g:render template ="contactformpartial" bean="${contact}" />
+</div>
 </body>
 </html>

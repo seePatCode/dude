@@ -23,7 +23,12 @@ html {
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
 }
-
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
 html.no-cssgradients {
 	background-color: #aaa;
 }

@@ -22,23 +22,36 @@
 </head>
 
 <body>
-<table class="table" id="contacts-table">
-    <thead>
-        <tr>
-            <th>First</th>
-            <th>Last</th>
-            <th>Yo Digits</th>
-        </tr>
-    </thead>
-    <tbody>
-        <g:each in="${contacts}" var="contact">
-        <tr data-url="/dude/viewcontact?contactid=${contact.id}">
-            <td>${contact.firstName}</td>
-            <td>${contact.lastName}</td>
-            <td>${contact.phoneNumber}</td>
-        </tr>
-        </g:each>
-    </tbody>
-</table>
+<div id="contacts-table">
+    <g:if test="${successMessage}">
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            ${successMessage}
+        </div>
+    </g:if>
+    <div style="margin-bottom:10px">
+        <a href="<g:createLink action="createcontact" />" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-plus"></span> Add Contact
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First</th>
+                <th>Last</th>
+                <th>Yo Digits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <g:each in="${contacts}" var="contact">
+            <tr data-url="<g:createLink action="viewcontact" params="[contactid:contact.id]" />">
+                <td>${contact.firstName}</td>
+                <td>${contact.lastName}</td>
+                <td>${contact.phoneNumber}</td>
+            </tr>
+            </g:each>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

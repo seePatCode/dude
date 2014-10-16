@@ -13,4 +13,23 @@ class ApplicationController {
         def contact = Contact.findById(contactid)
         render(view: "viewcontact", model: [contact: contact])
     }
+    def editcontact(String contactid){
+        def contact = Contact.findById(contactid)
+        render(view: "editcontact", model: [contact: contact])
+    }
+    def createcontact(){
+        def contact = new Contact(params)
+        String username = SecurityUtils.subject.principal
+        contact.user = ShiroUser.findByUsername(username)
+        contact.save(failOnError:true)
+        forward(action: "index", model: [successMessage: "${contact.firstName} was successfully created"])
+    }
+    def updatecontact()
+    {
+        def contact = Contact.findById(params.id)
+        contact.properties = params
+        contact.save(failOnError: true)
+        forward(action: "index", model: [successMessage: "${contact.firstName} was successfully updated"])
+    }
+
 }
