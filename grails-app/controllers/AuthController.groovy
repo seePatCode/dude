@@ -20,9 +20,6 @@ class AuthController {
         if (params.rememberMe) {
             authToken.rememberMe = true
         }
-        String username = params.username;
-        println()
-        println "${username} entered pass ${params.password as String}"
         // If a controller redirected to this page, redirect back
         // to it. Otherwise redirect to the root URI.
         def targetUri = params.targetUri ?: "/"

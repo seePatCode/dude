@@ -14,7 +14,7 @@
     <g:javascript library="jquery" plugin="jquery"/>
     <script>
            $(document).ready(function(){
-               $("#contacts-table").on("click", "tbody tr", function(){
+               $(".dude-table").on("click", "tbody tr", function(){
                     window.location = $(this).attr("data-url");
                });
            });
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<div id="contacts-table">
+<div class="dude-table">
     <g:if test="${successMessage}">
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -32,6 +32,10 @@
     <div style="margin-bottom:10px">
         <a href="<g:createLink action="createcontact" />" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-plus"></span> Add Contact
+        </a>
+
+        <a href="<g:createLink action="listAllUsers" />" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-search"></span> Find a friend
         </a>
     </div>
     <table class="table">

@@ -13,7 +13,7 @@
 *= require bootstrap
 */
 
-#contacts-table {
+.dude-table {
     width:900px;
     margin:0 auto;
 }

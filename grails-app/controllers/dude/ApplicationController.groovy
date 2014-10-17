@@ -6,7 +6,7 @@ class ApplicationController {
     def index() {
         String username = SecurityUtils.subject.principal
         def user = ShiroUser.findByUsername(username)
-        def contacts = Contact.findAllByUser(user)
+        def contacts = user.getAllContactsIncludingFriends()
         render(view: "index", model: [contacts: contacts])
     }
     def viewcontact(String contactid){
@@ -41,6 +41,32 @@ class ApplicationController {
             contact.delete(failOnError: true, flush: true)
             forward(action: "index", model: [successMessage: "${contact.firstName} was successfully deleted"])
         }
+    }
+    def listAllUsers()
+    {
+        String username = SecurityUtils.subject.principal
+        def user = ShiroUser.findByUsername(username)
+        def allUsers = ShiroUser.all
+        render(view: 'listallusers', model: [currentUser: user, allUsers: allUsers])
+    }
+
+    def removefriend(String userid)
+    {
+        String username = SecurityUtils.subject.principal
+        def user = ShiroUser.findByUsername(username)
+        def friend = ShiroUser.findById(userid)
+        user.friends.remove(friend)
+        user.save(failOnError: true, flush: true)
+        forward(action: "index", model: [successMessage: "${friend.username} defriended :("])
+    }
+    def addfriend(String userid)
+    {
+        String username = SecurityUtils.subject.principal
+        def user = ShiroUser.findByUsername(username)
+        def friend = ShiroUser.findById(userid)
+        user.friends.add(friend)
+        user.save(failOnError: true, flush: true)
+        forward(action: "index", model: [successMessage: "${friend.username} friended!"])
     }
 
 }
