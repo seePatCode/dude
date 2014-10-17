@@ -3,70 +3,46 @@ package dude
 import org.apache.shiro.SecurityUtils
 
 class ApplicationController {
+    def applicationService
     def index() {
-        String username = SecurityUtils.subject.principal
-        def user = ShiroUser.findByUsername(username)
-        def contacts = user.getAllContactsIncludingFriends()
-        render(view: "index", model: [contacts: contacts])
+        render(view: "index", model: [contacts: applicationService.getAllContacts()])
     }
     def viewcontact(String contactid){
-        def contact = Contact.findById(contactid)
-        render(view: "viewcontact", model: [contact: contact])
+        render(view: "viewcontact", model: [contact: applicationService.getContact(contactid)])
     }
     def editcontact(String contactid){
-        def contact = Contact.findById(contactid)
-        render(view: "editcontact", model: [contact: contact])
+        render(view: "editcontact", model: [contact: applicationService.getContact(contactid)])
     }
     def createcontact(){}
     def savenewcontact(){
-        def contact = new Contact(params)
-        String username = SecurityUtils.subject.principal
-        contact.user = ShiroUser.findByUsername(username)
-        contact.save(failOnError:true)
-        forward(action: "index", model: [successMessage: "${contact.firstName} was successfully created"])
+        forward(action: "index", model: [successMessage: "${applicationService.saveNewContact(new Contact(params)).firstName} was successfully created"])
     }
-    def updatecontact()
-    {
-        def contact = Contact.findById(params.id)
-        contact.properties = params
-        contact.save(failOnError: true)
-        forward(action: "index", model: [successMessage: "${contact.firstName} was successfully updated"])
+    def updatecontact(){
+        forward(action: "index", model: [successMessage: "${applicationService.updateContact(params).firstName} was successfully updated"])
     }
     def deletecontact(String contactid)
     {
-        def contact = Contact.findById(contactid)
+        def contact = applicationService.getContact(contactid)
         if(!contact)
             redirect(action:"index")
         else {
-            contact.delete(failOnError: true, flush: true)
+            applicationService.deleteContact(contact)
             forward(action: "index", model: [successMessage: "${contact.firstName} was successfully deleted"])
         }
     }
     def listAllUsers()
     {
-        String username = SecurityUtils.subject.principal
-        def user = ShiroUser.findByUsername(username)
-        def allUsers = ShiroUser.all
-        render(view: 'listallusers', model: [currentUser: user, allUsers: allUsers])
+        render(view: 'listallusers', model: [currentUser: applicationService.getLoggedInUser(),
+                                             allUsers: applicationService.getAllUsers()])
     }
 
     def removefriend(String userid)
     {
-        String username = SecurityUtils.subject.principal
-        def user = ShiroUser.findByUsername(username)
-        def friend = ShiroUser.findById(userid)
-        user.friends.remove(friend)
-        user.save(failOnError: true, flush: true)
-        forward(action: "index", model: [successMessage: "${friend.username} defriended :("])
+        forward(action: "index", model: [successMessage: "${applicationService.removeFriend(userid).username} defriended :("])
     }
     def addfriend(String userid)
     {
-        String username = SecurityUtils.subject.principal
-        def user = ShiroUser.findByUsername(username)
-        def friend = ShiroUser.findById(userid)
-        user.friends.add(friend)
-        user.save(failOnError: true, flush: true)
-        forward(action: "index", model: [successMessage: "${friend.username} friended!"])
+        forward(action: "index", model: [successMessage: "${applicationService.addFriend(userid).username} friended!"])
     }
 
 }
