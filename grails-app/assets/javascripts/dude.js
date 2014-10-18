@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var ContactView = Backbone.Marionette.ItemView.extend({
         tagName: "li",
-        template: _.template("<a href='<%-name%>'><%-name%></a>")
+        template: _.template("<a href='example/viewcontact?contactid=<%-id%>'><%-firstName%> <%-lastName%></a>")
     });
 
     var ContactListView = Backbone.Marionette.CollectionView.extend({
@@ -10,14 +10,18 @@ $(document).ready(function() {
         childView: ContactView
     });
 
-    var list = new Backbone.Collection([
-        {name: 'Link'},
-        {name: 'Zelda'}
-    ]);
+    var ContactCollection = Backbone.Collection.extend({
+        url: '/dude/api/contacts'
+    });
+
+    var contacts = new ContactCollection();
 
     (new ContactListView({
-        collection: list,
+        collection: contacts,
         el: '#contactList'
     })).render();
+
+    contacts.fetch();
+
 
 });
