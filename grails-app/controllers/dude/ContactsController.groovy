@@ -4,7 +4,7 @@ import grails.rest.RestfulController
 import grails.transaction.Transactional
 import org.apache.shiro.SecurityUtils
 
-class ContactController extends RestfulController {
+class ContactsController extends RestfulController {
 
     static responseFormats = ['json']
 
