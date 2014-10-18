@@ -78,5 +78,6 @@ grails.project.dependency.resolution = {
         //compile ":coffee-asset-pipeline:1.8.0"
         compile ":handlebars-asset-pipeline:1.3.0.3"
         runtime ':twitter-bootstrap:3.2.0.2' // current: 3.2.0.2
+        compile ":ember-asset-pipeline:1.4.0.2"
     }
 }

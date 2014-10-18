@@ -1,0 +1,37 @@
+<div class="dude-table">
+    <div style="margin-bottom:10px">
+        <a href="#"{{action 'newUser'}}  class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-plus"></span> Add Contact
+        </a>
+
+        <a href="#" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-search"></span> Find a friend
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Yo Digits</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each}}
+            <tr>
+                <td>{{firstName}}</td>
+                <td>{{lastName}}</td>
+                <td>{{phoneNumber}}</td>
+                <td>
+                    <a href="#" class="btn btn-default btn-sm removeRed" >
+                        <span class="glyphicon glyphicon-remove"></span> Remove Contact
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{outlet modal}}

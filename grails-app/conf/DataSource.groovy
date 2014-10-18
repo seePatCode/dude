@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "org.postgresql.Driver"
     dialect = "org.hibernate.dialect.PostgreSQLDialect"
     username = "postgres"
-    password = "Welcome1"
+    password = "4pple_Jack"
 }
 hibernate {
     cache.use_second_level_cache = true
