@@ -2,7 +2,7 @@ class UrlMappings {
 
 	static mappings = {
 
-        "/"(view: 'index')
+        "/"(controller: 'frontEnd', action: 'index')
         "/example/"(controller:"application")
         "/example/viewcontact"(controller:"application",action:"viewcontact")
         "/example/editcontact"(controller:"application",action:"editcontact")

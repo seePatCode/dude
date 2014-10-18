@@ -63,6 +63,7 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.7'
         compile ":asset-pipeline:1.9.9"
+        compile ":coffee-asset-pipeline:1.9.0"
 
         //Shire for User Sessions and security
         compile ":shiro:1.2.1"
