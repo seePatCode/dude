@@ -53,23 +53,25 @@
 
         <div id="content" class="">
 
-            <table class="pure-table pure-table-horizontal pure-table-striped">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Phone Number</th>
-                    </tr>
-                </thead>
-                <tbody id="contactList">
-                </tbody>
-            </table>
+            <form class="pure-form">
+                <table class="pure-table pure-table-horizontal pure-table-striped">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactList">
+                    </tbody>
+                </table>
+            </form>
 
         </div>
 
         <script id="contact-template" type="text/x-handlebars-template">
-            <td>{{firstName}}</td>
-            <td>{{lastName}}</td>
+            <td class="first-name"><input type="text" value="{{firstName}}" /></td>
+            <td class="last-name"><input type="text" value="{{lastName}}" /></td>
             <td>{{phoneNumber}}</td>
         </script>
 

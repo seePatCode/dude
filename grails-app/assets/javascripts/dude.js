@@ -5,18 +5,17 @@ $(document).ready(function() {
         template: Handlebars.compile($('#contact-template').html()),
 
         events: {
-            'click a': 'openModel'
+            'change .first-name input': function() { this.saveField('firstName', event); },
+            'change .last-name input': function() { this.saveField('lastName', event); },
         },
 
-        openModel: function(event) {
-            event.preventDefault();
-            alert(this.model.get('firstName'));
-
+        saveField: function(field, event) {
+            this.model.set(field, event.target.value);
+            this.model.save();
         }
     });
 
     var ContactListView = Backbone.Marionette.CollectionView.extend({
-        //tagName: "tr",
         childView: ContactView
     });
 
