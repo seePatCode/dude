@@ -2,17 +2,19 @@
 <html>
 	<head>
 
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
         %{-- jQuery --}%
         <g:javascript library="jquery" plugin="jquery" />
 
         %{-- Underscore --}%
-        <asset:javascript src="underscore.min.js" />
+        <asset:javascript src="underscore/underscore.min.js" />
 
         %{-- Backbone --}%
-        %{--<asset:javascript src="backbone/backbone.min.js" />--}%
+        <asset:javascript src="backbone/backbone.min.js" />
 
         %{-- Marionette --}%
-        %{--<asset:javascript src="marionette-bundled.ming.js" />--}%
+        <asset:javascript src="marionette/marionette-bundled.min.js" />
 
         %{-- Angular --}%
         %{--<asset:javascript src="angular/angular.min.js" />--}%
@@ -24,17 +26,21 @@
         %{--<asset:stylesheet src="ember/style.css" />--}%
 
         %{-- React --}%
-		<asset:javascript src="react/react.min.js" />
-		<asset:javascript src="react/JSXTransformer.js" />
+		%{--<asset:javascript src="react/react.min.js" />--}%
+		%{--<asset:javascript src="react/JSXTransformer.js" />--}%
 
         %{-- Your code --}%
-        <script src="assets/dude.js" type="text/jsx"></script>
+        <asset:javascript src="dude.js" />
         <asset:stylesheet src="dude.less" />
 
 	</head>
 	<body>
 
-        <div id="content"></div>
+        <div id="content">
+
+            <div id="contactList"></div>
+
+        </div>
 
 	</body>
 </html>
