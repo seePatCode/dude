@@ -5,14 +5,14 @@ $(document).ready(function() {
         template: Handlebars.compile($('#contact-template').html()),
 
         events: {
-            'change .first-name input': function() { this.saveField('firstName', event); },
-            'change .last-name input': function() { this.saveField('lastName', event); },
+            'keyup .first-name input': function() { this.saveField('firstName', event); },
+            'keyup .last-name input': function() { this.saveField('lastName', event); }
         },
 
-        saveField: function(field, event) {
+        saveField: _.debounce(function(field, event) {
             this.model.set(field, event.target.value);
             this.model.save();
-        }
+        }, 500)
     });
 
     var ContactListView = Backbone.Marionette.CollectionView.extend({
