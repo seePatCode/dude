@@ -1,12 +1,22 @@
 $(document).ready(function() {
 
     var ContactView = Backbone.Marionette.ItemView.extend({
-        tagName: "li",
-        template: Handlebars.compile($('#contact-template').html())
+        tagName: "tr",
+        template: Handlebars.compile($('#contact-template').html()),
+
+        events: {
+            'click a': 'openModel'
+        },
+
+        openModel: function(event) {
+            event.preventDefault();
+            alert(this.model.get('firstName'));
+
+        }
     });
 
     var ContactListView = Backbone.Marionette.CollectionView.extend({
-        tagName: 'ul',
+        //tagName: "tr",
         childView: ContactView
     });
 

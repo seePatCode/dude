@@ -37,16 +37,40 @@
         <asset:stylesheet src="dude.less" />
 
 	</head>
-	<body>
+	<body class="yui3-normalized">
 
-        <div id="content">
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
+                <a class="pure-menu-heading" href="">Dude!</a>
 
-            <div id="contactList"></div>
+                <ul>
+                    %{--<li class="pure-menu-selected"><a href="#">Home</a></li>--}%
+                    %{--<li><a href="#">Tour</a></li>--}%
+                    %{--<li><a href="#">Sign Up</a></li>--}%
+                </ul>
+            </div>
+        </div>
+
+        <div id="content" class="">
+
+            <table class="pure-table pure-table-horizontal pure-table-striped">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody id="contactList">
+                </tbody>
+            </table>
 
         </div>
 
         <script id="contact-template" type="text/x-handlebars-template">
-            <a href='example/viewcontact?contactid={{id}}>'>{{firstName}} {{lastName}}</a>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td>{{phoneNumber}}</td>
         </script>
 
 	</body>
