@@ -2,15 +2,16 @@ class UrlMappings {
 
 	static mappings = {
 
-        "/"(controller:"application")
-        "/viewcontact"(controller:"application",action:"viewcontact")
-        "/editcontact"(controller:"application",action:"editcontact")
-        "/createcontact"(controller:"application",action:"createcontact")
-        "/savenewcontact"(controller:"application",action:"savenewcontact")
-        "/updatecontact"(controller:"application",action:"updatecontact")
-        "/deletecontact"(controller:"application",action:"deletecontact")
-        "/findafriennd" (controller:"application",action:"listAllUsers")
-        "/logout"(controller:"auth", action: 'signOut')
+        "/"(view: 'index')
+        "/example/"(controller:"application")
+        "/example/viewcontact"(controller:"application",action:"viewcontact")
+        "/example/editcontact"(controller:"application",action:"editcontact")
+        "/example/createcontact"(controller:"application",action:"createcontact")
+        "/example/savenewcontact"(controller:"application",action:"savenewcontact")
+        "/example/updatecontact"(controller:"application",action:"updatecontact")
+        "/example/deletecontact"(controller:"application",action:"deletecontact")
+        "/example/findafriennd" (controller:"application",action:"listAllUsers")
+        "/example/logout"(controller:"auth", action: 'signOut')
         "500"(view:'/error')
         //========REST API ENDPOINTS======
         "/api/contacts"(resources: 'contacts')
