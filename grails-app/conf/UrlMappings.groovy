@@ -12,9 +12,13 @@ class UrlMappings {
         "/findafriennd" (controllre:"application",action:"listAllUsers")
         "/logout"(controller:"auth", action: 'signOut')
         "500"(view:'/error')
-
-        "/api/contacts"(resources: "contact")
-
+        //========REST API ENDPOINTS======
+        "/api/contacts"(resources: 'contacts')
+        "/api/users"(resources: 'users')
+        "/api/friends"(controller:"friends",action:"listFriends", method:"GET")
+        "/api/friends/$id"(controller:"friends",action:"addFriend", method:"PUT")
+        "/api/friends/$id"(controller:"friends",action:"removeFriend", method:"DELETE")
+        //======END REST API ENDPOINTS====
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

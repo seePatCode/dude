@@ -46,12 +46,14 @@ class ApplicationService {
         user.save()
         return friend
     }
-
     ShiroUser addFriend(String userid) {
         def user = getLoggedInUser()
         def friend = ShiroUser.findById(userid)
         user.friends.add(friend)
         user.save()
         return friend
+    }
+    Collection<ShiroUser> getFriends(){
+        return loggedInUser.friends
     }
 }
