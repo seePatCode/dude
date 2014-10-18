@@ -1,11 +1,11 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "org.postgresql.Driver"
-    dialect = "org.hibernate.dialect.PostgreSQLDialect"
-    username = "postgres"
-    password = "Welcome1"
+    driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = ""
 }
+
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
@@ -20,7 +20,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/dude"
+            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
     test {
