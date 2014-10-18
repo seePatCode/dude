@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var ContactView = Backbone.Marionette.ItemView.extend({
         tagName: "li",
-        template: _.template("<a href='example/viewcontact?contactid=<%-id%>'><%-firstName%> <%-lastName%></a>")
+        template: Handlebars.compile($('#contact-template').html())
     });
 
     var ContactListView = Backbone.Marionette.CollectionView.extend({

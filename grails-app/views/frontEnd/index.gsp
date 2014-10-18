@@ -16,6 +16,9 @@
         %{-- Marionette --}%
         <asset:javascript src="marionette/marionette-bundled.min.js" />
 
+        %{-- Handlebars --}%
+        <asset:javascript src="handlebars/handlebars-v2.0.0.js" />
+
         %{-- Angular --}%
         %{--<asset:javascript src="angular/angular.min.js" />--}%
 
@@ -41,6 +44,10 @@
             <div id="contactList"></div>
 
         </div>
+
+        <script id="contact-template" type="text/x-handlebars-template">
+            <a href='example/viewcontact?contactid={{id}}>'>{{firstName}} {{lastName}}</a>
+        </script>
 
 	</body>
 </html>
