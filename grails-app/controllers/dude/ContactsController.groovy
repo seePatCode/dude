@@ -4,14 +4,14 @@ import grails.rest.RestfulController
 import grails.transaction.Transactional
 import org.apache.shiro.SecurityUtils
 
-class ContactsController extends RestfulController {
+class ContactsController {
 
     static responseFormats = ['json']
 
     def applicationService
 
     def index() {
-        respond applicationService.allContacts
+        respond applicationService.allContacts.sort { it.id }
     }
 
     def show(Contact contact) {
@@ -21,7 +21,6 @@ class ContactsController extends RestfulController {
         respond contact
     }
 
-    @Transactional
     def update(Contact contact) {
         if (!applicationService.getContact(contact.id.toString())) {
             render status: 404
@@ -32,7 +31,6 @@ class ContactsController extends RestfulController {
         }
     }
 
-    @Transactional
     def save(Contact contact) {
         String username = SecurityUtils.subject.principal
         contact.user = ShiroUser.findByUsername(username)
@@ -46,7 +44,7 @@ class ContactsController extends RestfulController {
         }
         else {
             contact.delete(failOnError: true, flush: true)
-            render status: 200
+            respond([success: true])
         }
     }
 
